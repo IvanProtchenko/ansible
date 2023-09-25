@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Prints two lines of messages, but only if there is an environment value set
+    ansible.builtin.debug:
+      msg: "{{ansible_hostname}}"
+

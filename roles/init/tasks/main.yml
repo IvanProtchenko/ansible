@@ -1,0 +1,5 @@
+---
+- name: Initialize the Kubernetes cluster using kubeadm
+  command: "kubeadm init --apiserver-advertise-address={{ ansible_host }} --apiserver-cert-extra-sans={{ ansible_host }}  --node-name {{ inventory_hostname }} --pod-network-cidr={{ pod_network }}"
+  when:
+  - inventory_hostname in groups["master"]
